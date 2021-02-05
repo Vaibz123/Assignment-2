@@ -3,43 +3,43 @@
 
 View Students:Displays list of all students along with tests</br></br>
 url: http://localhost:8080/student/all
-
-Create student:
-url: http://localhost:8080/student
+</br></br>
+Create student:</br>
+url: http://localhost:8080/student</br>
 JSON data to be passed in body </br></br>
 {
     "name": "William",
     "age": 80
 }
-
-Add test:
-url: http://localhost:8080/test/10001
-
-JSON data to be passed in body
+</br></br>
+Add test:</br>
+url: http://localhost:8080/test/10001</br>
+</br>
+JSON data to be passed in body</br>
 {
         "name": "Economics",
         "marks": 85
 }
 
-
-Update student:
-url: http://localhost:8080/student/10002
-
-Here id=10002
-JSON data to be passed in body
+</br></br>
+Update student:</br>
+url: http://localhost:8080/student/10002</br>
+</br>
+Here id=10002</br>
+JSON data to be passed in body</br>
 {
     "name": "Tina",
     "age": 46,
     
-}
-
-Delete student:
-//deletes students alongwith related tests
-
+}</br>
+</br>
+Delete student:</br>
+//deletes students alongwith related tests</br>
+</br>
 url: http://localhost:8080/student/10004
+</br>
+</br>
+GetAllTop Student:</br>
+//Displays list of toppers with percentage>80%</br>
 
-
-GetAllTop Student:
-//Displays list of toppers with percentage>80%
-
-url: http://localhost:8080/student
+url: http://localhost:8080/student</br>
