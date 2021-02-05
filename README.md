@@ -1,12 +1,12 @@
 # Assignment-2
 
 
-View Students:Displays list of all students along with tests
+View Students:Displays list of all students along with tests</br></br>
 url: http://localhost:8080/student/all
 
 Create student:
 url: http://localhost:8080/student
-JSON data to be passed in body
+JSON data to be passed in body </br></br>
 {
     "name": "William",
     "age": 80
