@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset = "ISO-8859-1"/>
+	<title>View Users</title>
+	<style>
+	body{
+	text-align:center;
+	}
+	form{
+		border: 3px solid #555;
+		box-sizing: border-box;
+		-webkit-transition: 0.5s;
+	    transition: 0.5s;
+	    
+	    padding:15px;
+		margin: 20px;
+		width: 30%;
+		display: inline-block;
+		
+	}
+	
+	table,th,td{
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	th,td{
+	padding: 5px;
+	}
+	
+	input {
+	  width: 100%;
+	  padding: 5px 20px;
+	  margin: 6px 2px  ;
+	  box-sizing: border-box;
+	  border: 3px solid #ccc ;
+	  -webkit-transition: 0.5s;
+	  transition: 0.5s;
+	  outline: none;
+}
+
+input:focus {
+  border: 3px solid #555;
+}
+
+button{
+
+background-color: green;
+}
+	</style>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+		
+	      $("#add").click(function() {
+			var name=document.getElementById("name").value;	
+			var age=document.getElementById("age").value;
+			
+	         var studentmodel = {
+	            "name": name,
+				"age": age
+	         };
+	         var requestJSON = JSON.stringify(studentmodel);
+	         $.ajax({
+	            type : "POST",
+	            url : "http://localhost:8080/student",
+	            headers : {
+	               "Content-Type" : "application/json"
+	            },
+	            data : requestJSON,
+	            async: true,
+	            success: function(data) {
+	               alert("Student created successfully");
+	            },
+	            error : function(data) {
+	            }
+	         });
+	      });
+	   });
+	</script>
+	
+	</head>
+<body>
+
+<h2>Student Registration Form</h2>
+<form>
+
+Name: <input type="text" id="name"><br>
+<br>
+Age: <input type="number" id="age"><br>
+<br>
+
+<br>
+<button id="add" type="submit">Add Student</button>
+</form>
+
+
+
+
+</body>
+</html>

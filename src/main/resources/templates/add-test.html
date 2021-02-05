@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset = "ISO-8859-1"/>
+	<title>Add test</title>
+	<style>
+	body{
+	text-align:center;
+	}
+	form{
+		border: 3px solid #555;
+		box-sizing: border-box;
+		-webkit-transition: 0.5s;
+	    transition: 0.5s;
+	    
+	    padding:15px;
+		margin: 20px;
+		width: 30%;
+		display: inline-block;
+		
+	}
+	
+	table,th,td{
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	th,td{
+	padding: 5px;
+	}
+	
+	input {
+	  width: 100%;
+	  padding: 5px 20px;
+	  margin: 6px 2px  ;
+	  box-sizing: border-box;
+	  border: 3px solid #ccc ;
+	  -webkit-transition: 0.5s;
+	  transition: 0.5s;
+	  outline: none;
+}
+
+input:focus {
+  border: 3px solid #555;
+}
+
+button{
+
+background-color: green;
+}
+	</style>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+		
+	      $("#addTest").click(function() {
+			var name=document.getElementById("name").value;	
+			var marks=document.getElementById("marks").value;
+			var sid=document.getElementById("sid").value;
+			var url="http://localhost:8080/test/"+sid;
+			console.log(url);
+	        var testmodel = {
+	   
+	            "name": name,
+				"marks": marks
+	         };
+	         var requestJSON = JSON.stringify(testmodel);
+	         $.ajax({
+	            type : "POST",
+	            url : url,
+	            headers : {
+	               "Content-Type" : "application/json"
+	            },
+	            data : requestJSON,
+	            async: true,
+	            success: function(data) {
+	               alert("Test added successfully");
+	            },
+	            error : function(data) {
+	            	alert("Student not found");
+	            }
+	         });
+	      });
+	   });
+	</script>
+	
+	</head>
+<body>
+
+<h2>Add Test</h2>
+<form>
+Student id: <input type="number" id="sid"><br>
+<br>
+Test Name: <input type="text" id="name"><br>
+<br>
+Marks: <input type="number" id="marks"><br>
+<br>
+
+<br>
+<button id="addTest" type="submit">Add Test</button>
+</form>
+
+</body>
+</html>

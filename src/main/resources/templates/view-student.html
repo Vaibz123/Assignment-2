@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset = "ISO-8859-1"/>
+	<title>Students</title>
+	<style>
+	body{
+	text-align:center;
+	}
+	
+	table{
+	display: inline-block;
+	
+	}
+	
+	table,th,td{
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	  
+	}
+	th,td{
+	padding: 8px;
+	}
+	</style>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+	<script>
+		$(document).ready(function(){
+		
+		$.ajax({
+		
+		url:"http://localhost:8080/student/all",
+		type:"get",
+		dataType:"JSON",
+		success:function(response){
+		var len=response.length;
+			for(var i=0;i<len;i++)
+			{
+				var id=response[i]["id"];
+				
+				var name=response[i]["name"];
+				var age=response[i]["age"];
+				
+				
+				$("#tbody").append("<tr>"+
+				"<td align='center'>"+id+"</td>"+
+				"<td align='center'>"+name+"</td>"+
+				"<td align='center'>"+age+"</td>"+
+				"</tr>"
+				);
+				
+		
+			}
+		
+		
+		}
+		
+		
+		
+		});
+		});
+	</script>
+</head>
+<body>
+
+<h2>User Details</h2>
+
+<table>
+ <tr>
+ 	<th>Id</th>
+ 	<th>Name</th>
+    <th>Age</th>
+ </tr>
+<tbody id="tbody">
+
+</tbody>
+</table> 
+
+
+
+
+
+</body>
+</html>
